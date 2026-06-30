@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Body Ritual — 你的双步骤轻体仪式</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandGreen: '#008453',
+                        brandBg: '#F8F7F2',
+                        brandDark: '#111111',
+                        softSage: '#A2B79A',
+                        cardBg: '#FCFBF9',
+                        amberAccent: '#D97706'
+                    },
+                    fontFamily: {
+                        serif: ['Noto Serif SC', 'Playfair Display', 'serif'],
+                        sans: ['Noto Sans SC', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #F8F7F2; color: #111111; }
+        .font-serif-title { font-family: 'Noto Serif SC', serif; }
+
+        /* Nav scroll effect */
+        #navbar { transition: box-shadow 0.3s; }
+        #navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+
+        /* Fade-in on scroll */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* FAQ accordion */
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+        .faq-answer.open { max-height: 300px; }
+        .faq-icon { transition: transform 0.3s; }
+        .faq-icon.open { transform: rotate(45deg); }
+
+        /* Sticky nav active link */
+        .nav-link.active { color: #008453; }
+
+        /* Product card hover */
+        .product-card { transition: transform 0.3s, box-shadow 0.3s; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+
+        /* Package card highlight */
+        .pkg-popular { position: relative; }
+        .pkg-popular::before {
+            content: '最受欢迎';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #008453;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            padding: 3px 14px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; }
+            * { transition: none !important; }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+<!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brandBg/85 backdrop-blur-md border-b border-gray-200/40 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="text-xl font-bold tracking-wider text-brandDark font-serif-title">Light Body Ritual</div>
+
+        <div class="hidden md:flex space-x-8 text-xs font-medium tracking-widest text-gray-500 uppercase">
+            <a href="#painpoints" class="nav-link hover:text-brandGreen transition">日常痛点</a>
+            <a href="#mechanism" class="nav-link hover:text-brandGreen transition">双阶科学</a>
+            <a href="#ingredients" class="nav-link hover:text-brandGreen transition">核心成分</a>
+            <a href="#reviews" class="nav-link hover:text-brandGreen transition">真实反馈</a>
+            <a href="#packages" class="nav-link hover:text-brandGreen transition">定制方案</a>
+            <a href="#faq" class="nav-link hover:text-brandGreen transition">FAQ</a>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <span class="text-[11px] border border-gray-300 rounded-full px-3 py-1 text-gray-400 bg-white/50 hidden sm:inline">SVO.AI</span>
+            <a href="#packages" class="bg-brandGreen text-white text-xs font-bold tracking-wider px-5 py-2.5 rounded-full hover:bg-emerald-800 transition shadow-sm">立即定制</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+<section class="relative pt-32 pb-24 md:pt-44 md:pb-36 overflow-hidden" style="background: linear-gradient(135deg, #CBDBC5 0%, #E2ECE0 45%, #F8F7F2 100%);">
+    <!-- Subtle SVG lines -->
+    <div class="absolute inset-0 opacity-20 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-100,380 Q350,180 750,480 T1600,280" stroke="#008453" stroke-width="1.5" fill="none"/>
+            <path d="M-60,430 Q390,230 790,530 T1650,330" stroke="#A2B79A" stroke-width="1" fill="none"/>
+        </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10">
+        <!-- Left: Copy -->
+        <div class="md:col-span-7 space-y-6">
+            <span class="inline-block bg-white/75 border border-brandGreen/20 text-brandGreen text-xs font-medium px-4 py-1.5 rounded-full tracking-widest">
+                SVO.AI INTELLIGENT HEALTH · Daily Light Body Ritual
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold text-brandDark leading-tight font-serif-title">
+                餐前轻负荷，<br>
+                <span class="text-brandGreen">餐后做 Reset.</span>
+            </h1>
+            <p class="text-gray-600 text-sm md:text-base max-w-lg leading-relaxed">
+                给忙碌都市人的双步骤轻体系统 —— 不是越饿越瘦，而是先把肠胃节奏和代谢节奏调顺。打破传统强力腹泻的恶性循环，两个动作，每天都能执行。
+            </p>
+            <div class="pt-2 flex flex-wrap gap-4">
+                <a href="#packages" class="bg-brandGreen text-white text-xs font-bold tracking-widest px-8 py-4 rounded-full hover:bg-emerald-800 shadow-lg transition">开始你的轻体仪式</a>
+                <a href="#mechanism" class="bg-white/50 border border-gray-300 text-gray-700 text-xs font-bold tracking-widest px-8 py-4 rounded-full hover:bg-white transition">深入科学机制</a>
+            </div>
+            <!-- Trust badges -->
+            <div class="pt-4 flex flex-wrap gap-4 text-xs text-gray-500">
+                <span class="flex items-center gap-1.5"><span class="text-brandGreen">✓</span> 无强效腹泻成分</span>
+                <span class="flex items-center gap-1.5"><span class="text-brandGreen">✓</span> 符合 HSA 合规表达</span>
+                <span class="flex items-center gap-1.5"><span class="text-brandGreen">✓</span> 专利 DigeSEB™ Pro 酶</span>
+            </div>
+        </div>
+
+        <!-- Right: Product mockup cards -->
+        <div class="md:col-span-5 flex justify-center items-center gap-5">
+            <div class="bg-white/90 backdrop-blur-sm p-5 rounded-2xl shadow-xl border border-white transform -rotate-2 hover:rotate-0 transition duration-300 w-40 md:w-48 text-center cursor-default">
+                <div class="bg-amber-50 rounded-xl py-10 mb-3 flex flex-col items-center gap-2">
+                    <div class="w-14 h-20 bg-gradient-to-b from-amber-500 to-amber-800 rounded-lg shadow-md"></div>
+                    <span class="text-[9px] text-amber-600 font-mono tracking-widest">SACHET × 15</span>
+                </div>
+                <h4 class="font-bold text-xs tracking-wide text-amber-900">KURO KOSEN</h4>
+                <p class="text-[10px] text-gray-400 mt-0.5">餐前高纤阻断</p>
+            </div>
+
+            <div class="w-8 h-8 rounded-full bg-brandGreen text-white flex items-center justify-center font-bold text-base shadow-md z-10 flex-shrink-0">+</div>
+
+            <div class="bg-white/90 backdrop-blur-sm p-5 rounded-2xl shadow-xl border border-white transform rotate-2 hover:rotate-0 transition duration-300 w-40 md:w-48 text-center cursor-default">
+                <div class="bg-emerald-50 rounded-xl py-10 mb-3 flex flex-col items-center gap-2">
+                    <div class="w-14 h-20 bg-gradient-to-b from-emerald-600 to-emerald-900 rounded-lg shadow-md"></div>
+                    <span class="text-[9px] text-emerald-700 font-mono tracking-widest">TABLET × 30</span>
+                </div>
+                <h4 class="font-bold text-xs tracking-wide text-brandGreen">SPI²RO PLUS</h4>
+                <p class="text-[10px] text-gray-400 mt-0.5">餐后肠道重置</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PAIN POINTS ═══════════════════════════════════════ -->
+<section id="painpoints" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3 reveal">
+        <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full tracking-widest uppercase">Metabolic Check</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-serif-title">吃得不算多，却总是胀、卡、重？</h2>
+        <p class="text-gray-500 text-sm">问题可能不是你不够努力，而是你的肠道节奏和代谢节奏早打乱了。如果以下符合 2 项以上，你的身体正处于无序的代谢对抗状态：</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-md transition product-card reveal">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-xl mb-4">🧠</div>
+            <h3 class="font-bold text-base mb-2">顽固胀气感</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">外食多、久坐少动，吃完饭肚子总是鼓鼓的，感觉消化卡在中途，沉重不舒服。</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-md transition product-card reveal">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-xl mb-4">🏃</div>
+            <h3 class="font-bold text-base mb-2">排便无规律</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">明明有吃纤维，排便还是不顺畅。肠道的自然排空节奏彻底紊乱，无法排干净。</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-md transition product-card reveal">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-xl mb-4">🌊</div>
+            <h3 class="font-bold text-base mb-2">晨起浮肿感</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">早上起床脸和小腹总是肿肿的，身体水分与代谢循环不畅，整天感觉沉重。</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-md transition product-card reveal">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-xl mb-4">🍲</div>
+            <h3 class="font-bold text-base mb-2">大餐重三天</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">一次火锅或油腻聚餐，需要整整三天节食才能恢复，根本无法享受正常社交。</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-md transition product-card reveal">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-xl mb-4">📊</div>
+            <h3 class="font-bold text-base mb-2">体重数字平台期</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">即使少吃疯狂运动，体脂或体重秤上的数字依然纹丝不动，意志力被消磨殆尽。</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-md transition product-card reveal">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-xl mb-4">☁️</div>
+            <h3 class="font-bold text-base mb-2">下午脑雾疲惫</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">午餐后血糖飙升，下午两三点整个人昏昏欲睡，伴随强烈甜食渴望，咖啡也续不了命。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════ MECHANISM ═══════════════════════════════════════ -->
+<section id="mechanism" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+            <span class="bg-emerald-100 text-brandGreen text-xs font-bold px-3 py-1 rounded-full tracking-widest uppercase">双阶科学机制</span>
+            <h2 class="text-3xl md:text-4xl font-bold font-serif-title mt-3">为什么单一益生菌或苹果醋效果不持久？</h2>
+            <p class="text-gray-500 text-sm mt-2 max-w-xl mx-auto">身体在餐前和餐后需要完全不同的生化支持。单一时段、单一成分，就像只打扫房间却不关窗户。</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 reveal">
+            <!-- Step 1 -->
+            <div class="bg-amber-50/60 border border-amber-100 rounded-3xl p-8 space-y-5">
+                <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Step 01 · 餐前 20 Mins</span>
+                <h3 class="text-2xl font-bold font-serif-title text-amber-900">高纤扩容与包裹</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    在用餐前建立「防御屏障」：可溶性膳食纤维在胃部形成天然凝胶网络，减缓高碳水与油脂的瞬间吸收，平稳饭后波动，让你从容享用每一餐。
+                </p>
+                <div class="bg-white/70 p-4 rounded-xl border border-amber-100/80 text-xs text-gray-500 space-y-1.5">
+                    <div>⏱ 餐前 20 分钟冲服 1 袋 + 200ml 温水</div>
+                    <div>🍵 粉状饮品，亦可制成果冻 Jelly 形式</div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-emerald-50/60 border border-emerald-100 rounded-3xl p-8 space-y-5">
+                <span class="bg-emerald-100 text-brandGreen text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Step 02 · 餐后 / 睡前</span>
+                <h3 class="text-2xl font-bold font-serif-title text-brandGreen">高活性破壁重置</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    餐后进入「全面刷新」模式：专利消化酶全方位覆盖碳水、蛋白质及脂肪分解，双重螺旋藻深层吸附残留，拒绝食物在肠道滞留发酵，让肠胃清爽过夜。
+                </p>
+                <div class="bg-white/70 p-4 rounded-xl border border-emerald-100/80 text-xs text-gray-500 space-y-1.5">
+                    <div>⏱ 饭后或睡前 1–2 粒，直接咀嚼</div>
+                    <div>💊 咀嚼片，口感清爽无腥味</div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center text-sm text-gray-400 mt-10 font-medium italic reveal">
+            这就是你的 Daily Light Body Ritual —— 简单两个步骤，每天都能坚持。
+        </p>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════ INGREDIENTS ═══════════════════════════════════════ -->
+<section id="ingredients" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+        <span class="text-brandGreen text-xs font-bold tracking-widest uppercase">Core Formulation</span>
+        <h2 class="text-3xl font-bold font-serif-title mt-2">两大核心成分深度拆解</h2>
+        <p class="text-gray-500 text-xs mt-2">专为合规与长效轻体设计的科学组方</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Kuro Kosen -->
+        <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm flex flex-col justify-between product-card reveal">
+            <div>
+                <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Step 01 / Pre-Meal Support</span>
+                <h3 class="text-2xl font-bold mt-5 font-serif-title text-amber-900">Kuro Kosen</h3>
+                <p class="text-sm text-amber-700 font-medium">黑醋西梅高纤饮</p>
+                <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+                    利用可溶性小麦纤维（Soluble Wheat Fiber）在胃部形成天然凝胶网络，配合日本传统黑醋（Kurozu）激发日常活力，温和支持轻盈体验。
+                </p>
+                <div class="mt-6 space-y-3">
+                    <div class="flex items-start gap-2">
+                        <span class="text-amber-500 mt-0.5 flex-shrink-0">✦</span>
+                        <p class="text-xs text-gray-600"><strong>西梅提取物 NUTRALLAX™：</strong> 天然温和高纤，支持肠道自主排空节奏，绝无西药依赖性。</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-amber-500 mt-0.5 flex-shrink-0">✦</span>
+                        <p class="text-xs text-gray-600"><strong>日本传统黑醋 Kurozu：</strong> 蕴含丰富有机酸，支持每日健康平衡代谢。</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-amber-500 mt-0.5 flex-shrink-0">✦</span>
+                        <p class="text-xs text-gray-600"><strong>可溶性小麦纤维：</strong> 帮助餐前饱腹感建立，减缓高碳水吸收波动。</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-amber-500 mt-0.5 flex-shrink-0">✦</span>
+                        <p class="text-xs text-gray-600"><strong>红茶提取物：</strong> 帮助在餐前进行舒缓的身体准备，提升日常轻盈感。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-5 border-t border-gray-100 text-[11px] text-gray-400 space-y-1">
+                <div>💡 <strong>使用方法：</strong> 餐前 20 分钟，以 200ml 温水或冷水冲服 1 袋</div>
+                <div>📦 每盒 15 袋，约半个月用量</div>
+            </div>
+        </div>
+
+        <!-- SPI²RO Plus -->
+        <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm flex flex-col justify-between product-card reveal">
+            <div>
+                <span class="bg-emerald-100 text-brandGreen text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Step 02 / Post-Meal Reset</span>
+                <h3 class="text-2xl font-bold mt-5 font-serif-title text-brandGreen">SPI²RO Plus</h3>
+                <p class="text-sm text-emerald-700 font-medium">专利复合酶双藻咀嚼片</p>
+                <p class="text-xs text-gray-500 mt-3 leading-relaxed">
+                    核心注入 DigeSEB™ Pro 专利多功能消化酶，全方位覆盖碳水、蛋白质及脂肪的分解；双重螺旋藻与绿藻家族协同作用，支持日常净化与肠道平衡。
+                </p>
+                <div class="mt-6 space-y-3">
+                    <div class="flex items-start gap-2">
+                        <span class="text-brandGreen mt-0.5 flex-shrink-0">✦</span>
+                        <p class="text-xs text-gray-600"><strong>DigeSEB™ Pro 专利消化酶：</strong> 多功能复合酶，支持碳水、蛋白质、脂肪的全面顺畅消化。</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-brandGreen mt-0.5 flex-shrink-0">✦</span>
+                        <p class="text-xs text-gray-600"><strong>绿螺旋藻 + 蓝螺旋藻：</strong> 双重螺旋藻，支持日常净化与营养均衡补充。</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-brandGreen mt-0.5 flex-shrink-0">✦</span>
+                        <p class="text-xs text-gray-600"><strong>小球藻 Chlorella + 绿藻：</strong> 绿藻家族协同，帮助塑造顺畅日常平衡节奏。</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-brandGreen mt-0.5 flex-shrink-0">✦</span>
+                        <p class="text-xs text-gray-600"><strong>天然植物基质：</strong> 无人工色素，无依赖性成分，长期日常使用安心。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-5 border-t border-gray-100 text-[11px] text-gray-400 space-y-1">
+                <div>💡 <strong>使用方法：</strong> 每日 1–2 粒，饭后或睡前直接咀嚼</div>
+                <div>📦 每盒 30 粒，约一个月用量</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════ REVIEWS ═══════════════════════════════════════ -->
+<section id="reviews" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="reveal mb-12 space-y-2">
+            <span class="bg-amber-100 text-amber-800 text-xs px-3 py-1 rounded-full font-medium">真实反馈</span>
+            <h2 class="text-3xl font-bold font-serif-title text-brandDark">听听她们的感受</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <div class="bg-cardBg p-7 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between reveal product-card">
+                <div>
+                    <div class="flex gap-0.5 mb-4">
+                        <span class="text-amber-400 text-sm">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                        "以前每次大餐完要重两三天。现在餐前喝 Kuro Kosen，饭后嚼 Spiro，真的没那么胀了。不是那种夸张的瘦，而是整个人的轻盈感回来了。"
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 border-t border-gray-100 pt-4">
+                    <div class="w-10 h-10 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-xs flex-shrink-0">SC</div>
+                    <div>
+                        <h5 class="text-sm font-bold">Sharon Chan</h5>
+                        <span class="text-xs text-gray-400">Marketing Manager, 34 · Singapore</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-cardBg p-7 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between reveal product-card">
+                <div>
+                    <div class="flex gap-0.5 mb-4">
+                        <span class="text-amber-400 text-sm">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                        "我试过很多酵素和代餐，都是开始有效后来无感。这个双系统让我最惊喜的是上厕所规律了——每天早上准时，跟以前真的不一样。"
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 border-t border-gray-100 pt-4">
+                    <div class="w-10 h-10 rounded-full bg-amber-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0">ME</div>
+                    <div>
+                        <h5 class="text-sm font-bold">Mona Eng</h5>
+                        <span class="text-xs text-gray-400">Finance Professional, 29 · KL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-cardBg p-7 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between reveal product-card">
+                <div>
+                    <div class="flex gap-0.5 mb-4">
+                        <span class="text-amber-400 text-sm">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                        "生完两个孩子后肚子一直消不掉。最好的是它不是让你腹泻，而是帮你把消化节奏调回来，一个月后衣服明显好穿了。"
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 border-t border-gray-100 pt-4">
+                    <div class="w-10 h-10 rounded-full bg-teal-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0">YY</div>
+                    <div>
+                        <h5 class="text-sm font-bold">Ying Ying</h5>
+                        <span class="text-xs text-gray-400">Mother of Two, 41 · Penang</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PACKAGES ═══════════════════════════════════════ -->
+<section id="packages" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal space-y-3">
+        <span class="bg-emerald-100 text-brandGreen text-xs font-bold px-3 py-1 rounded-full tracking-widest uppercase">定制方案</span>
+        <h2 class="text-3xl font-bold font-serif-title">选择你的轻体起点</h2>
+        <p class="text-gray-500 text-sm max-w-md mx-auto">无论你是初次尝试还是长期执行者，都有对应的方案。</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <!-- Starter -->
+        <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col reveal product-card">
+            <div class="mb-6">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">入门体验</span>
+                <h3 class="text-2xl font-bold font-serif-title mt-2">Starter Kit</h3>
+                <p class="text-xs text-gray-500 mt-1">适合初次了解双步骤体系</p>
+            </div>
+            <div class="mb-6">
+                <span class="text-3xl font-bold text-brandDark">SGD 68</span>
+                <span class="text-sm text-gray-400 ml-1">/ 套</span>
+            </div>
+            <ul class="text-sm text-gray-600 space-y-2.5 mb-8 flex-1">
+                <li class="flex items-center gap-2"><span class="text-brandGreen font-bold">✓</span> Kuro Kosen × 1 盒（15 袋）</li>
+                <li class="flex items-center gap-2"><span class="text-brandGreen font-bold">✓</span> SPI²RO Plus × 1 盒（30 粒）</li>
+                <li class="flex items-center gap-2"><span class="text-brandGreen font-bold">✓</span> 使用指南 PDF</li>
+                <li class="flex items-center gap-2 text-gray-300"><span>✗</span> 专属顾问跟进</li>
+                <li class="flex items-center gap-2 text-gray-300"><span>✗</span> 第二个月优先折扣</li>
+            </ul>
+            <a href="#" class="block text-center border-2 border-brandGreen text-brandGreen text-sm font-bold py-3 rounded-full hover:bg-brandGreen hover:text-white transition">
+                选择此方案
+            </a>
+        </div>
+
+        <!-- Popular -->
+        <div class="bg-brandGreen rounded-3xl p-8 border border-brandGreen shadow-xl flex flex-col reveal product-card pkg-popular">
+            <div class="mb-6">
+                <span class="text-xs font-bold text-emerald-300 uppercase tracking-widest">30 天完整仪式</span>
+                <h3 class="text-2xl font-bold font-serif-title mt-2 text-white">Ritual Month</h3>
+                <p class="text-xs text-emerald-200 mt-1">大多数用户从这里开始感受变化</p>
+            </div>
+            <div class="mb-6">
+                <span class="text-3xl font-bold text-white">SGD 118</span>
+                <span class="text-sm text-emerald-300 ml-1">/ 套</span>
+            </div>
+            <ul class="text-sm text-emerald-100 space-y-2.5 mb-8 flex-1">
+                <li class="flex items-center gap-2"><span class="text-white font-bold">✓</span> Kuro Kosen × 2 盒（30 袋）</li>
+                <li class="flex items-center gap-2"><span class="text-white font-bold">✓</span> SPI²RO Plus × 1 盒（30 粒）</li>
+                <li class="flex items-center gap-2"><span class="text-white font-bold">✓</span> 使用指南 PDF + 饮食建议</li>
+                <li class="flex items-center gap-2"><span class="text-white font-bold">✓</span> WhatsApp 顾问 1 对 1 跟进</li>
+                <li class="flex items-center gap-2 text-emerald-300"><span>✗</span> 第二个月优先折扣</li>
+            </ul>
+            <a href="#" class="block text-center bg-white text-brandGreen text-sm font-bold py-3 rounded-full hover:bg-emerald-50 transition">
+                选择此方案
+            </a>
+        </div>
+
+        <!-- Premium -->
+        <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col reveal product-card">
+            <div class="mb-6">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">长效维持</span>
+                <h3 class="text-2xl font-bold font-serif-title mt-2">60-Day Reset</h3>
+                <p class="text-xs text-gray-500 mt-1">完整重置代谢节奏的最佳周期</p>
+            </div>
+            <div class="mb-6">
+                <span class="text-3xl font-bold text-brandDark">SGD 198</span>
+                <span class="text-sm text-gray-400 ml-1">/ 套</span>
+                <span class="ml-2 text-xs text-brandGreen font-bold bg-emerald-50 px-2 py-0.5 rounded-full">省 SGD 38</span>
+            </div>
+            <ul class="text-sm text-gray-600 space-y-2.5 mb-8 flex-1">
+                <li class="flex items-center gap-2"><span class="text-brandGreen font-bold">✓</span> Kuro Kosen × 4 盒（60 袋）</li>
+                <li class="flex items-center gap-2"><span class="text-brandGreen font-bold">✓</span> SPI²RO Plus × 2 盒（60 粒）</li>
+                <li class="flex items-center gap-2"><span class="text-brandGreen font-bold">✓</span> 使用指南 PDF + 饮食建议</li>
+                <li class="flex items-center gap-2"><span class="text-brandGreen font-bold">✓</span> WhatsApp 顾问 1 对 1 跟进</li>
+                <li class="flex items-center gap-2"><span class="text-brandGreen font-bold">✓</span> 第三个月续购 9 折优先资格</li>
+            </ul>
+            <a href="#" class="block text-center border-2 border-brandGreen text-brandGreen text-sm font-bold py-3 rounded-full hover:bg-brandGreen hover:text-white transition">
+                选择此方案
+            </a>
+        </div>
+    </div>
+
+    <p class="text-center text-xs text-gray-400 mt-8 reveal">
+        所有方案均提供 WhatsApp 下单 · 顺丰 / J&T 快递配送 · 7 天内妥善包装保障
+    </p>
+</section>
+
+<!-- ═══════════════════════════════════════ FAQ ═══════════════════════════════════════ -->
+<section id="faq" class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-12 reveal space-y-2">
+            <span class="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">FAQ</span>
+            <h2 class="text-3xl font-bold font-serif-title">常见问题</h2>
+        </div>
+
+        <div class="space-y-3 reveal" id="faq-list">
+            <div class="faq-item bg-cardBg border border-gray-100 rounded-2xl overflow-hidden">
+                <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center font-medium text-sm">
+                    <span>这两个产品可以单独使用吗，还是必须一起用？</span>
+                    <span class="faq-icon text-brandGreen text-xl leading-none">+</span>
+                </button>
+                <div class="faq-answer px-6 text-sm text-gray-500 leading-relaxed">
+                    <div class="pb-5">可以单独使用，但效果最佳是组合使用。Kuro Kosen 专注餐前准备，SPI²RO Plus 专注餐后重置，两者针对不同时间窗口各司其职。单独使用效果约为组合的 50–60%，若你有预算限制可以先从其中一个开始。</div>
+                </div>
+            </div>
+
+            <div class="faq-item bg-cardBg border border-gray-100 rounded-2xl overflow-hidden">
+                <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center font-medium text-sm">
+                    <span>多久能看到效果？</span>
+                    <span class="faq-icon text-brandGreen text-xl leading-none">+</span>
+                </button>
+                <div class="faq-answer px-6 text-sm text-gray-500 leading-relaxed">
+                    <div class="pb-5">大多数用户在 3–7 天内感受到排便更规律、饭后胀气减少；2–4 周后体重数字开始有明显移动，晨起浮肿感改善。完整调整肠道节奏建议坚持 30 天完整周期。</div>
+                </div>
+            </div>
+
+            <div class="faq-item bg-cardBg border border-gray-100 rounded-2xl overflow-hidden">
+                <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center font-medium text-sm">
+                    <span>会不会产生依赖性，停用之后会反弹吗？</span>
+                    <span class="faq-icon text-brandGreen text-xl leading-none">+</span>
+                </button>
+                <div class="faq-answer px-6 text-sm text-gray-500 leading-relaxed">
+                    <div class="pb-5">不会。这两款产品均不含番泻叶、大黄等刺激性泻药成分，无依赖性。原理是帮助你的消化节奏「归位」而非「强制清空」，停用后已调顺的节奏会保留。我们建议 30–60 天调整期后可降低频率维持使用。</div>
+                </div>
+            </div>
+
+            <div class="faq-item bg-cardBg border border-gray-100 rounded-2xl overflow-hidden">
+                <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center font-medium text-sm">
+                    <span>孕妇、哺乳期或正在服药者可以使用吗？</span>
+                    <span class="faq-icon text-brandGreen text-xl leading-none">+</span>
+                </button>
+                <div class="faq-answer px-6 text-sm text-gray-500 leading-relaxed">
+                    <div class="pb-5">孕妇和哺乳期建议先咨询医生。正在服药者请确认无成分冲突后再使用。如有特定健康状况，请在购买前透过 WhatsApp 与我们顾问详细沟通。</div>
+                </div>
+            </div>
+
+            <div class="faq-item bg-cardBg border border-gray-100 rounded-2xl overflow-hidden">
+                <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center font-medium text-sm">
+                    <span>Kuro Kosen 口感如何？甜吗？</span>
+                    <span class="faq-icon text-brandGreen text-xl leading-none">+</span>
+                </button>
+                <div class="faq-answer px-6 text-sm text-gray-500 leading-relaxed">
+                    <div class="pb-5">口感为淡淡的黑醋西梅风味，微酸带果香，不会过甜。冷水冲服口感更清爽，也可以用热水冲后放凉制成 Jelly 形态，变化更多，易于坚持。</div>
+                </div>
+            </div>
+
+            <div class="faq-item bg-cardBg border border-gray-100 rounded-2xl overflow-hidden">
+                <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center font-medium text-sm">
+                    <span>如何下单？支持哪些付款方式？</span>
+                    <span class="faq-icon text-brandGreen text-xl leading-none">+</span>
+                </button>
+                <div class="faq-answer px-6 text-sm text-gray-500 leading-relaxed">
+                    <div class="pb-5">目前通过 WhatsApp 直接下单，支持 PayNow、PayLah、银行转账及 GrabPay。确认付款后 1–2 个工作日内发货，附上追踪号码，全程顾问跟进。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CTA BANNER ═══════════════════════════════════════ -->
+<section class="py-20 px-6" style="background: linear-gradient(135deg, #005C3A 0%, #008453 60%, #00A066 100%);">
+    <div class="max-w-3xl mx-auto text-center space-y-6 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold font-serif-title text-white leading-tight">
+            今天就开始你的<br>轻体仪式
+        </h2>
+        <p class="text-emerald-200 text-sm max-w-md mx-auto leading-relaxed">
+            两个步骤，每天都能执行。不需要节食，不需要极端运动，只需要帮身体建立正确的节奏。
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center pt-2">
+            <a href="#packages" class="bg-white text-brandGreen text-sm font-bold px-8 py-4 rounded-full hover:bg-emerald-50 shadow-lg transition">
+                立即选择方案
+            </a>
+            <a href="https://wa.me/" target="_blank" class="border-2 border-white/60 text-white text-sm font-bold px-8 py-4 rounded-full hover:bg-white/10 transition">
+                WhatsApp 咨询
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
+<footer class="bg-brandDark text-gray-400 py-14 px-6">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+            <div>
+                <h4 class="text-white text-sm font-bold font-serif-title tracking-wide mb-3">Light Body Ritual</h4>
+                <p class="text-xs text-gray-500 leading-relaxed">双步骤轻体系统，针对忙碌都市人设计。由 SVO.AI Intelligent Health 出品。</p>
+            </div>
+            <div>
+                <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-3">快速导航</h4>
+                <ul class="text-xs space-y-2 text-gray-500">
+                    <li><a href="#painpoints" class="hover:text-white transition">日常痛点</a></li>
+                    <li><a href="#mechanism" class="hover:text-white transition">双阶科学</a></li>
+                    <li><a href="#ingredients" class="hover:text-white transition">核心成分</a></li>
+                    <li><a href="#packages" class="hover:text-white transition">定制方案</a></li>
+                    <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-3">联系我们</h4>
+                <ul class="text-xs space-y-2 text-gray-500">
+                    <li>📱 WhatsApp 咨询与下单</li>
+                    <li>📦 马来西亚 · 新加坡配送</li>
+                    <li>🕐 工作日 9am–6pm 回复</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-800 pt-8 space-y-3">
+            <p class="text-xs text-gray-600 leading-relaxed max-w-3xl">
+                <strong class="text-gray-500">合规声明：</strong>根据新加坡 HSA 对保健食品（Health Supplements）的相关规范，本页面使用 supports / helps support / formulated for / daily wellness 等合规表达，而非医疗性质声明。本产品不用于诊断、治疗、治愈或预防任何疾病。
+            </p>
+            <p class="text-xs text-gray-700">© 2026 Light Body Ritual · SVO.AI Intelligent Health. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ═══════════════════════════════════════ SCRIPTS ═══════════════════════════════════════ -->
+<script>
+    // Nav shadow on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const answer = btn.nextElementSibling;
+            const icon = btn.querySelector('.faq-icon');
+            const isOpen = answer.classList.contains('open');
+
+            // Close all
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+
+            // Open clicked if it was closed
+            if (!isOpen) {
+                answer.classList.add('open');
+                icon.classList.add('open');
+            }
+        });
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>
